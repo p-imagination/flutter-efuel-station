@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:xs_progress_hud/xs_progress_hud.dart';
 
 class confirm_efuel extends StatefulWidget {
   confirm_efuel();
@@ -48,7 +49,7 @@ class _confirm_efuelState extends State<confirm_efuel> {
         child: TextFormField(
           textAlign: TextAlign.center,
           controller: qrCodeController,
-          maxLines: 2,
+          maxLines: 1,
           decoration: InputDecoration(
               hintText: "Code",
               filled: true,
@@ -139,9 +140,14 @@ class _confirm_efuelState extends State<confirm_efuel> {
             if (!_formKey.currentState.validate()) {
               return;
             } else {
-              Loader.showUnDismissibleLoader(context);
+              XsProgressHud.show(context);
+
+              //  Loader.showDismissibleLoader(context);
 // sending qrCode to server to confirm process
               api_functions().approve_transaction(auth, qrCodeController.text, context).then((response){
+              //  Loader.hideDialog(context);
+                XsProgressHud.hide();
+
                 if(response=="success"){
                   _scaffoldKey.currentState.showSnackBar(
                     SnackBar(

@@ -267,7 +267,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                         Padding(
                           padding: const EdgeInsets.only(top: 40),
                           child: Image.asset(
-                            "assets/image_icon.png",
+                            "assets/icon.png",
                             width: MediaQuery.of(context).size.width / 2,
                             height: MediaQuery.of(context).size.height / 5,
                           ),

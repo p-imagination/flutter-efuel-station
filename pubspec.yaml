@@ -33,6 +33,7 @@ dependencies:
 
   majascan:
   flutter_webview_plugin:
+  xs_progress_hud: ^1.0.2
 
   flushbar: ^1.9.0
   shared_preferences:

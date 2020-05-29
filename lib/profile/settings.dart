@@ -132,8 +132,8 @@ class _SettingsState extends State<Settings> {
     const url_android =
         "https://play.google.com/store/apps/details?id=efuelworker.efuel_worker";
 
-//    const url_ios =
-//        "https://apps.apple.com/us/app/anamehani-provider/id1481774684?ls=1";
+    const url_ios =
+        "https://apps.apple.com/us/app/my-efuel-station/id1496559869?ls=1";
     if (Platform.isAndroid) {
       if (await canLaunch(url_android)) {
         await launch(url_android);
@@ -143,14 +143,24 @@ class _SettingsState extends State<Settings> {
 
       // Android-specific code
     } else if (Platform.isIOS) {
-
+      if (await canLaunch(url_ios)) {
+        await launch(url_ios);
+      } else {
+        throw 'Could not launch $url_ios';
+      }
       // iOS-specific code
     }
   }
   // share app via social media
   void share_efuel() async{
+if(Platform.isIOS){
+  Share.share('https://apps.apple.com/us/app/my-efuel-station/id1496559869?ls=1');
 
-    Share.share('https://play.google.com/store/apps/details?id=efuelworker.efuel_worker');
+}
+else {
+  Share.share('https://play.google.com/store/apps/details?id=efuelworker.efuel_worker');
+
+}
 
 
   }

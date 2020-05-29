@@ -88,7 +88,7 @@ class _Splash_ScreenState extends State<Splash_Screen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Image.asset(
-              "assets/image_icon.png",
+              "assets/icon.png",
               width: MediaQuery.of(context).size.width / 2,
               height: MediaQuery.of(context).size.height / 5,
             ),
